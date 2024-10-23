@@ -1,0 +1,94 @@
+==================
+Simple
+==================
+
+package pack
+
+version = 0.0.1
+
+authors = "Stefan Höck"
+
+brief   = "A package manager for Idris2 with curated package collections"
+
+langversion >= 0.6.0
+
+-- script to run before building
+prebuild = "bash version.sh"
+
+postbuild = "bash restore.sh"
+
+sourcedir  = "src"
+
+---
+
+(source_file
+  (package_declaration
+    (package_name))
+  (version_declaration
+    (version_number))
+  (field_declaration
+    (field_name)
+    (string_value))
+  (field_declaration
+    (field_name)
+    (string_value))
+  (langversion_declaration
+    (version_range
+      (version_range_op)
+      (version_number)))
+  (comment)
+  (field_declaration
+    (field_name)
+    (string_value))
+  (field_declaration
+    (field_name)
+    (string_value))
+  (field_declaration
+    (field_name)
+    (string_value)))
+
+==================
+modules
+==================
+
+modules = Pack.CmdLn
+        , Pack.CmdLn.Completion
+        , Pack.CmdLn.Opts
+        , Pack.CmdLn.Types
+
+        , Pack.Config
+
+---
+
+(source_file
+  (module_declaration
+    (module_list
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name))))
+
+==================
+main
+==================
+
+main       = Main
+
+---
+
+(source_file
+  (main_declaration
+    (module_name)))
+
+==================
+executable
+==================
+
+executable = pack
+
+---
+
+(source_file
+  (executable_declaration
+    (package_name)))

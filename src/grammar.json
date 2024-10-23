@@ -1,0 +1,484 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
+  "name": "ipkg",
+  "rules": {
+    "source_file": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "package_declaration"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "dependency_declaration"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "module_declaration"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "field_declaration"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "main_declaration"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "executable_declaration"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "version_declaration"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "langversion_declaration"
+          }
+        ]
+      }
+    },
+    "package_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "package"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "package_name"
+        }
+      ]
+    },
+    "dependency_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "depends"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dependency_list"
+        }
+      ]
+    },
+    "module_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "modules"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "module_list"
+        }
+      ]
+    },
+    "main_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "main"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "module_name"
+        }
+      ]
+    },
+    "executable_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "executable"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "package_name"
+        }
+      ]
+    },
+    "version_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "version"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "version_number"
+        }
+      ]
+    },
+    "langversion_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "langversion"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "version_range"
+        }
+      ]
+    },
+    "field_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "field_name"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "string_value"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "boolean_value"
+            }
+          ]
+        }
+      ]
+    },
+    "package_name": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z][a-zA-Z0-9_'-]*"
+    },
+    "field_name": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "authors"
+        },
+        {
+          "type": "STRING",
+          "value": "maintainers"
+        },
+        {
+          "type": "STRING",
+          "value": "license"
+        },
+        {
+          "type": "STRING",
+          "value": "brief"
+        },
+        {
+          "type": "STRING",
+          "value": "readme"
+        },
+        {
+          "type": "STRING",
+          "value": "homepage"
+        },
+        {
+          "type": "STRING",
+          "value": "sourceloc"
+        },
+        {
+          "type": "STRING",
+          "value": "bugtracker"
+        },
+        {
+          "type": "STRING",
+          "value": "opts"
+        },
+        {
+          "type": "STRING",
+          "value": "sourcedir"
+        },
+        {
+          "type": "STRING",
+          "value": "builddir"
+        },
+        {
+          "type": "STRING",
+          "value": "outputdir"
+        },
+        {
+          "type": "STRING",
+          "value": "prebuild"
+        },
+        {
+          "type": "STRING",
+          "value": "postbuild"
+        },
+        {
+          "type": "STRING",
+          "value": "preinstall"
+        },
+        {
+          "type": "STRING",
+          "value": "postinstall"
+        },
+        {
+          "type": "STRING",
+          "value": "preclean"
+        },
+        {
+          "type": "STRING",
+          "value": "postclean"
+        }
+      ]
+    },
+    "string_value": {
+      "type": "PATTERN",
+      "value": "\"[^\"]*\""
+    },
+    "module_list": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "module_name"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "module_name"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "module_name": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z][a-zA-Z0-9_']*(\\.[a-zA-Z][a-zA-Z0-9_']*)*"
+    },
+    "dependency_list": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "dependency_item"
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "dependency_item"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "dependency_item": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "package_name"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "version_range"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "version_range_op": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "STRING",
+          "value": "<="
+        },
+        {
+          "type": "STRING",
+          "value": ">="
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        }
+      ]
+    },
+    "version_range": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "version_number"
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "version_range_op"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "version_number"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": "&&"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "version_range_op"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "version_number"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "version_number": {
+      "type": "PATTERN",
+      "value": "[0-9]+\\.[0-9]+\\.[0-9]+"
+    },
+    "boolean_value": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "True"
+        },
+        {
+          "type": "STRING",
+          "value": "False"
+        }
+      ]
+    },
+    "comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "--"
+          },
+          {
+            "type": "PATTERN",
+            "value": ".*"
+          }
+        ]
+      }
+    },
+    "_linebreak": {
+      "type": "PATTERN",
+      "value": "\\n"
+    },
+    "_": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\s"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "comment"
+        }
+      ]
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "comment"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}

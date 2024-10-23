@@ -1,0 +1,413 @@
+[
+  {
+    "type": "boolean_value",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "dependency_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "dependency_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dependency_item",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "package_name",
+          "named": true
+        },
+        {
+          "type": "version_range",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dependency_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "dependency_item",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "executable_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "package_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "field_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "boolean_value",
+          "named": true
+        },
+        {
+          "type": "field_name",
+          "named": true
+        },
+        {
+          "type": "string_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "field_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "langversion_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "version_range",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "main_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "module_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "module_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "module_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "module_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "module_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "package_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "package_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "dependency_declaration",
+          "named": true
+        },
+        {
+          "type": "executable_declaration",
+          "named": true
+        },
+        {
+          "type": "field_declaration",
+          "named": true
+        },
+        {
+          "type": "langversion_declaration",
+          "named": true
+        },
+        {
+          "type": "main_declaration",
+          "named": true
+        },
+        {
+          "type": "module_declaration",
+          "named": true
+        },
+        {
+          "type": "package_declaration",
+          "named": true
+        },
+        {
+          "type": "version_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "version_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "version_number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "version_range",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "version_number",
+          "named": true
+        },
+        {
+          "type": "version_range_op",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "version_range_op",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "&&",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
+    "named": false
+  },
+  {
+    "type": "False",
+    "named": false
+  },
+  {
+    "type": "True",
+    "named": false
+  },
+  {
+    "type": "authors",
+    "named": false
+  },
+  {
+    "type": "brief",
+    "named": false
+  },
+  {
+    "type": "bugtracker",
+    "named": false
+  },
+  {
+    "type": "builddir",
+    "named": false
+  },
+  {
+    "type": "comment",
+    "named": true
+  },
+  {
+    "type": "depends",
+    "named": false
+  },
+  {
+    "type": "executable",
+    "named": false
+  },
+  {
+    "type": "homepage",
+    "named": false
+  },
+  {
+    "type": "langversion",
+    "named": false
+  },
+  {
+    "type": "license",
+    "named": false
+  },
+  {
+    "type": "main",
+    "named": false
+  },
+  {
+    "type": "maintainers",
+    "named": false
+  },
+  {
+    "type": "module_name",
+    "named": true
+  },
+  {
+    "type": "modules",
+    "named": false
+  },
+  {
+    "type": "opts",
+    "named": false
+  },
+  {
+    "type": "outputdir",
+    "named": false
+  },
+  {
+    "type": "package",
+    "named": false
+  },
+  {
+    "type": "package_name",
+    "named": true
+  },
+  {
+    "type": "postbuild",
+    "named": false
+  },
+  {
+    "type": "postclean",
+    "named": false
+  },
+  {
+    "type": "postinstall",
+    "named": false
+  },
+  {
+    "type": "prebuild",
+    "named": false
+  },
+  {
+    "type": "preclean",
+    "named": false
+  },
+  {
+    "type": "preinstall",
+    "named": false
+  },
+  {
+    "type": "readme",
+    "named": false
+  },
+  {
+    "type": "sourcedir",
+    "named": false
+  },
+  {
+    "type": "sourceloc",
+    "named": false
+  },
+  {
+    "type": "string_value",
+    "named": true
+  },
+  {
+    "type": "version",
+    "named": false
+  },
+  {
+    "type": "version_number",
+    "named": true
+  }
+]

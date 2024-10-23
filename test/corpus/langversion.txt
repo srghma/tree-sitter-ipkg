@@ -1,0 +1,28 @@
+==================
+langversion - range
+==================
+
+langversion >= 0.6.0 && <= 0.7.0
+
+---
+
+(source_file
+  (langversion_declaration
+    (version_range
+      (version_range_op)
+      (version_number)
+      (version_range_op)
+      (version_number))))
+
+==================
+langversion - just number
+==================
+
+langversion 0.6.0
+
+---
+
+(source_file
+  (langversion_declaration
+    (version_range
+      (version_number))))

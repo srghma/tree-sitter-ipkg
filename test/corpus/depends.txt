@@ -1,0 +1,209 @@
+==================
+depends oneline
+==================
+
+depends = base >= 0.6.0, elab-util, idris2, parser-toml
+
+---
+
+(source_file
+  (dependency_declaration
+    (dependency_list
+      (dependency_item
+        (package_name)
+        (version_range
+          (version_range_op)
+          (version_number)))
+      (dependency_item
+        (package_name))
+      (dependency_item
+        (package_name))
+      (dependency_item
+        (package_name)))))
+
+
+==================
+depends
+==================
+
+depends = base >= 0.6.0
+        , elab-util
+        , idris2
+        , parser-toml
+
+---
+
+(source_file
+  (dependency_declaration
+    (dependency_list
+      (dependency_item
+        (package_name)
+        (version_range
+          (version_range_op)
+          (version_number)))
+      (dependency_item
+        (package_name))
+      (dependency_item
+        (package_name))
+      (dependency_item
+        (package_name)))))
+
+==================
+depends with separators
+==================
+
+depends = base >= 0.6.0
+        , elab-util
+
+        , idris2
+        , parser-toml
+
+---
+
+(source_file
+  (dependency_declaration
+    (dependency_list
+      (dependency_item
+        (package_name)
+        (version_range
+          (version_range_op)
+          (version_number)))
+      (dependency_item
+        (package_name))
+      (dependency_item
+        (package_name))
+      (dependency_item
+        (package_name)))))
+
+==================
+depends with comments on same line
+==================
+
+depends = base >= 0.6.0
+        , elab-util -- my comment
+
+        , idris2
+        , parser-toml
+
+---
+
+(source_file
+  (dependency_declaration
+    (dependency_list
+      (dependency_item
+        (package_name)
+        (version_range
+          (version_range_op)
+          (version_number)))
+      (dependency_item
+        (package_name))
+      (comment)
+      (dependency_item
+        (package_name))
+      (dependency_item
+        (package_name)))))
+
+==================
+depends with comments
+==================
+
+depends = base >= 0.6.0
+        , elab-util
+ -- my comment
+        , idris2
+        , parser-toml
+
+---
+
+(source_file
+  (dependency_declaration
+    (dependency_list
+      (dependency_item
+        (package_name)
+        (version_range
+          (version_range_op)
+          (version_number)))
+      (dependency_item
+        (package_name))
+      (comment)
+      (dependency_item
+        (package_name))
+      (dependency_item
+        (package_name)))))
+
+==================
+depends oneline 1
+==================
+
+depends = base
+
+---
+
+(source_file
+  (dependency_declaration
+    (dependency_list
+      (dependency_item
+        (package_name)))))
+
+
+==================
+depends oneline 1 with version
+==================
+
+depends = base >= 0.6.0
+
+---
+
+(source_file
+  (dependency_declaration
+    (dependency_list
+      (dependency_item
+        (package_name)
+        (version_range
+          (version_range_op)
+          (version_number))))))
+
+
+==================
+depends oneline 1 with version and commment
+==================
+
+depends = base >= 0.6.0 && <= 0.7.0 --comment
+
+---
+
+(source_file
+  (dependency_declaration
+    (dependency_list
+      (dependency_item
+        (package_name)
+        (version_range
+          (version_range_op)
+          (version_number)
+          (version_range_op)
+          (version_number)))))
+  (comment))
+
+==================
+depends multiline with version and commment
+==================
+
+depends = base 1.6.1 -- commnet
+        -- commnet
+        -- commnet
+        , base
+
+---
+
+(source_file
+  (dependency_declaration
+    (dependency_list
+      (dependency_item
+        (package_name)
+        (version_range
+          (version_number)))
+      (comment)
+      (comment)
+      (comment)
+      (dependency_item
+        (package_name)))))
