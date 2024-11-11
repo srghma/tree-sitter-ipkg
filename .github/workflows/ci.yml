@@ -2,12 +2,8 @@ name: Parse examples
 
 on:
   push:
-    branches: [master]
-    paths:
-      - grammar.js
+    branches: [master, main]
   pull_request:
-    paths:
-      - grammar.js
 
 jobs:
   examples:
