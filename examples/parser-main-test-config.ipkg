@@ -1,0 +1,13 @@
+package parser-test
+version = 0.1.0
+authors = "stefan-hoeck"
+
+depends = parser
+        , idris2
+        , hedgehog
+
+modules = Test.Lex.Util
+
+main = Main
+executable = parser-test
+sourcedir = "src"

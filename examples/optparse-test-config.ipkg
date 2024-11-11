@@ -1,0 +1,12 @@
+package test
+
+modules = Options.Applicative.Test
+
+depends = lens
+        , wl-pprint
+        , bifunctors
+        , optparse
+
+main = Options.Applicative.Test
+
+executable = runtests

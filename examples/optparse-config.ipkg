@@ -1,0 +1,14 @@
+package optparse
+
+
+modules = Options.Applicative
+        , Options.Applicative.Builder
+        , Options.Applicative.Chunk
+        , Options.Applicative.Maybe
+        , Options.Applicative.Run
+        , Options.Applicative.Types
+        , Options.Applicative.Usage
+
+depends = lens
+        , wl-pprint
+        , bifunctors
