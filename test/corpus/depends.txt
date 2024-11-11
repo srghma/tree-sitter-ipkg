@@ -97,7 +97,7 @@ depends = base >= 0.6.0
           (version_number)))
       (dependency_item
         (package_name))
-      (comment)
+      (line_comment)
       (dependency_item
         (package_name))
       (dependency_item
@@ -125,7 +125,7 @@ depends = base >= 0.6.0
           (version_number)))
       (dependency_item
         (package_name))
-      (comment)
+      (line_comment)
       (dependency_item
         (package_name))
       (dependency_item
@@ -182,7 +182,7 @@ depends = base >= 0.6.0 && <= 0.7.0 --comment
           (version_number)
           (version_range_op)
           (version_number)))))
-  (comment))
+  (line_comment))
 
 ==================
 depends multiline with version and commment
@@ -202,8 +202,8 @@ depends = base 1.6.1 -- commnet
         (package_name)
         (version_range
           (version_number)))
-      (comment)
-      (comment)
-      (comment)
+      (line_comment)
+      (line_comment)
+      (line_comment)
       (dependency_item
         (package_name)))))

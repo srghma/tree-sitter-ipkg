@@ -3,7 +3,7 @@
   "name": "ipkg",
   "rules": {
     "source_file": {
-      "type": "REPEAT1",
+      "type": "REPEAT",
       "content": {
         "type": "CHOICE",
         "members": [
@@ -118,8 +118,17 @@
           "value": "="
         },
         {
-          "type": "SYMBOL",
-          "name": "package_name"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "string_value"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "package_name"
+            }
+          ]
         }
       ]
     },
@@ -432,7 +441,7 @@
         }
       ]
     },
-    "comment": {
+    "line_comment": {
       "type": "TOKEN",
       "content": {
         "type": "SEQ",
@@ -461,7 +470,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "comment"
+          "name": "line_comment"
         }
       ]
     }
@@ -473,12 +482,21 @@
     },
     {
       "type": "SYMBOL",
-      "name": "comment"
+      "name": "line_comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "block_comment"
     }
   ],
   "conflicts": [],
   "precedences": [],
-  "externals": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "block_comment"
+    }
+  ],
   "inline": [],
   "supertypes": []
 }

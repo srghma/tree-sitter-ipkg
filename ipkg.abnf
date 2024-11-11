@@ -1,0 +1,56 @@
+; ABNF grammar for Idris2 package (.ipkg) files
+; Based on provided example
+
+; Basic elements
+ALPHA = %x41-5A / %x61-7A       ; A-Z / a-z
+DIGIT = %x30-39                 ; 0-9
+SP    = %x20                    ; space
+NL    = %x0A / %x0D.0A         ; newline (Unix or Windows style)
+WSP   = SP / %x09              ; whitespace or tab
+dash  = %x2D                    ; "-"
+equal = %x3D                    ; "="
+
+; Basic constructs
+whitespace = *WSP
+line-end = whitespace NL
+
+; Comments
+comment = "--" *(%x20-10FFFF) line-end
+
+; Version number (e.g., 0.0.1)
+version-number = 1*DIGIT "." 1*DIGIT "." 1*DIGIT
+
+; Version range operators
+version-range-op = ">=" / "<=" / ">" / "<" / "="
+
+; Version range specification
+version-range = version-range-op whitespace version-number
+
+; Package name
+package-name = (ALPHA / "_") *(ALPHA / DIGIT / dash / "_")
+
+; String value (quoted text)
+string-char = %x20-21 / %x23-5B / %x5D-10FFFF  ; any char except " and control chars
+quoted-string = %x22 *string-char %x22          ; double-quoted string
+string-value = quoted-string
+
+; Field name (lowercase identifier)
+field-name = 1*%x61-7A *(ALPHA / DIGIT)        ; starts lowercase, then any alphanumeric
+
+; Basic declarations
+package-declaration = "package" whitespace package-name line-end
+
+version-declaration = "version" whitespace equal whitespace version-number line-end
+
+langversion-declaration = "langversion" whitespace version-range line-end
+
+field-declaration = field-name whitespace equal whitespace string-value line-end
+
+; Complete ipkg file structure
+declaration = package-declaration
+            / version-declaration
+            / langversion-declaration
+            / field-declaration
+            / comment
+
+ipkg-file = 1*declaration

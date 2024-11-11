@@ -64,6 +64,10 @@
         {
           "type": "package_name",
           "named": true
+        },
+        {
+          "type": "string_value",
+          "named": true
         }
       ]
     }
@@ -178,7 +182,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "dependency_declaration",
@@ -295,6 +299,10 @@
     "named": false
   },
   {
+    "type": "block_comment",
+    "named": true
+  },
+  {
     "type": "brief",
     "named": false
   },
@@ -305,10 +313,6 @@
   {
     "type": "builddir",
     "named": false
-  },
-  {
-    "type": "comment",
-    "named": true
   },
   {
     "type": "depends",
@@ -329,6 +333,10 @@
   {
     "type": "license",
     "named": false
+  },
+  {
+    "type": "line_comment",
+    "named": true
   },
   {
     "type": "main",

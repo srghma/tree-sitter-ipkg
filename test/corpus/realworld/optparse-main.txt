@@ -1,0 +1,40 @@
+============================================
+optparse-main
+============================================
+package optparse
+
+
+modules = Options.Applicative
+        , Options.Applicative.Builder
+        , Options.Applicative.Chunk
+        , Options.Applicative.Maybe
+        , Options.Applicative.Run
+        , Options.Applicative.Types
+        , Options.Applicative.Usage
+
+depends = lens
+        , wl-pprint
+        , bifunctors
+
+------
+
+(source_file
+  (package_declaration
+    (package_name))
+  (module_declaration
+    (module_list
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)))
+  (dependency_declaration
+    (dependency_list
+      (dependency_item
+        (package_name))
+      (dependency_item
+        (package_name))
+      (dependency_item
+        (package_name)))))

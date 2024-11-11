@@ -10,8 +10,16 @@
 export default grammar({
   name: "ipkg",
 
+  externals: ($) => [$.block_comment],
+
+  extras: ($) => [
+    /\s/,
+    $.line_comment,
+    $.block_comment
+  ],
+
   rules: {
-    source_file: $ => repeat1(choice(
+    source_file: $ => repeat(choice(
       $.package_declaration,
       $.dependency_declaration,
       $.module_declaration,
@@ -19,7 +27,9 @@ export default grammar({
       $.main_declaration,
       $.executable_declaration,
       $.version_declaration,
-      $.langversion_declaration
+      $.langversion_declaration,
+      // $.line_comment,
+      // $.block_comment,
     )),
 
     package_declaration: $ => seq(
@@ -48,7 +58,10 @@ export default grammar({
     executable_declaration: $ => seq(
       'executable',
       '=',
-      $.package_name
+      choice(
+        ($.string_value),
+        ($.package_name)
+      )
     ),
 
     version_declaration: $ => seq(
@@ -96,7 +109,6 @@ export default grammar({
     ),
 
     string_value: $ => /"[^"]*"/,
-
 
     module_list: $ => sepBy1(',', $.module_name),
 
@@ -151,20 +163,15 @@ export default grammar({
 
     boolean_value: $ => choice('True', 'False'),
 
-    comment: $ => token(seq('--', /.*/)),
+    line_comment: $ => token(seq('--', /.*/)),
 
     _linebreak: () => /\n/,
 
     _: $ => choice(
       /\s/,
-      $.comment
+      $.line_comment
     ),
   },
-
-  extras: $ => [
-    /\s/,
-    $.comment
-  ],
 });
 
 function sep1(separator, ignored, element) {

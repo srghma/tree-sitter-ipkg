@@ -1,0 +1,51 @@
+============================================
+idris2-lsp-main
+============================================
+package idris2-lsp
+version = 0.7.0
+
+opts = "-Wno-shadowing"
+
+depends = idris2, contrib, lsp-lib
+
+langversion >= 0.7.0
+
+sourcedir = "src"
+
+main = Server.Main
+executable = idris2-lsp
+
+prebuild = "make src/Server/Generated.idr"
+
+------
+
+(source_file
+  (package_declaration
+    (package_name))
+  (version_declaration
+    (version_number))
+  (field_declaration
+    (field_name)
+    (string_value))
+  (dependency_declaration
+    (dependency_list
+      (dependency_item
+        (package_name))
+      (dependency_item
+        (package_name))
+      (dependency_item
+        (package_name))))
+  (langversion_declaration
+    (version_range
+      (version_range_op)
+      (version_number)))
+  (field_declaration
+    (field_name)
+    (string_value))
+  (main_declaration
+    (module_name))
+  (executable_declaration
+    (package_name))
+  (field_declaration
+    (field_name)
+    (string_value)))

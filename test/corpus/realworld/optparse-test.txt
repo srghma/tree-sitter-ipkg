@@ -1,0 +1,37 @@
+============================================
+optparse-test
+============================================
+package test
+
+modules = Options.Applicative.Test
+
+depends = lens
+        , wl-pprint
+        , bifunctors
+        , optparse
+
+main = Options.Applicative.Test
+
+executable = runtests
+------
+
+(source_file
+  (package_declaration
+    (package_name))
+  (module_declaration
+    (module_list
+      (module_name)))
+  (dependency_declaration
+    (dependency_list
+      (dependency_item
+        (package_name))
+      (dependency_item
+        (package_name))
+      (dependency_item
+        (package_name))
+      (dependency_item
+        (package_name))))
+  (main_declaration
+    (module_name))
+  (executable_declaration
+    (package_name)))

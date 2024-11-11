@@ -36,7 +36,7 @@ sourcedir  = "src"
     (version_range
       (version_range_op)
       (version_number)))
-  (comment)
+  (line_comment)
   (field_declaration
     (field_name)
     (string_value))
@@ -73,7 +73,7 @@ modules = Pack.CmdLn
 main
 ==================
 
-main       = Main
+main      = Main
 
 ---
 

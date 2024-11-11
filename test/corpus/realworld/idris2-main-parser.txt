@@ -1,0 +1,74 @@
+============================================
+idris2-main-parser
+============================================
+package parser
+version   = 0.1.0
+authors   = "stefan-hoeck"
+sourcedir = "src"
+depends   = elab-util
+brief     = "Types and utilities for writing total parsers and lexers"
+
+modules = Data.Bool.Rewrite
+        , Data.List.Shift
+        , Data.List.Suffix
+        , Data.List.Suffix.Result
+        , Data.List.Suffix.Result0
+
+        , Text.Bounds
+        , Text.FC
+        , Text.ParseError
+
+        , Text.Lex
+        , Text.Lex.Core
+        , Text.Lex.Manual
+        , Text.Lex.Manual.Syntax
+        , Text.Lex.Shift
+        , Text.Lex.Tokenizer
+        , Text.Lex.Util
+
+        , Text.Parse
+        , Text.Parse.Core
+        , Text.Parse.Manual
+        , Text.Parse.Syntax
+
+------
+
+(source_file
+  (package_declaration
+    (package_name))
+  (version_declaration
+    (version_number))
+  (field_declaration
+    (field_name)
+    (string_value))
+  (field_declaration
+    (field_name)
+    (string_value))
+  (dependency_declaration
+    (dependency_list
+      (dependency_item
+        (package_name))))
+  (field_declaration
+    (field_name)
+    (string_value))
+  (module_declaration
+    (module_list
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name))))

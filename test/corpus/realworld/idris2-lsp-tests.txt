@@ -1,0 +1,25 @@
+============================================
+idris2-lsp-tests
+============================================
+package runtests
+
+depends = contrib, test
+main = Main
+
+executable = runtests
+
+------
+
+(source_file
+  (package_declaration
+    (package_name))
+  (dependency_declaration
+    (dependency_list
+      (dependency_item
+        (package_name))
+      (dependency_item
+        (package_name))))
+  (main_declaration
+    (module_name))
+  (executable_declaration
+    (package_name)))

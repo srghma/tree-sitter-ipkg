@@ -1,0 +1,77 @@
+============================================
+Line comment
+============================================
+--- line comment
+
+------
+
+(source_file
+  (line_comment))
+
+============================================
+Block comment
+============================================
+{- block -}
+
+------
+
+(source_file
+  (block_comment))
+
+============================================
+Nested block comments
+============================================
+{- {- double nested -} -}
+-- asdf
+{-{-{- triple nested -}-}-}
+-- ---
+{----
+  {----
+    nested with extra stars
+  ----}
+----}
+-- asdf
+----
+(source_file
+  (block_comment)
+  (line_comment)
+  (block_comment)
+  (line_comment)
+  (block_comment)
+  (line_comment))
+
+==================
+main
+==================
+
+{- asdf -} main   {- asdf -}   = Main {- asdf -}
+
+---
+
+(source_file
+  (block_comment)
+  (main_declaration
+    (block_comment)
+    (module_name))
+  (block_comment))
+
+==================
+main
+==================
+
+{-
+ asdf
+-} main   {-
+  asdf
+-}   = Main {-
+ asdf
+-}
+
+---
+
+(source_file
+  (block_comment)
+  (main_declaration
+    (block_comment)
+    (module_name))
+  (block_comment))

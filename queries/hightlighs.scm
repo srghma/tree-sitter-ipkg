@@ -46,9 +46,11 @@
 (version_range_op) @operator
 
 ; Comments
-(comment) @comment
+[
+  (line_comment)
+  (block_comment)
+] @comment
 
 ; Punctuation
 "=" @punctuation.delimiter
 "," @punctuation.delimiter
-

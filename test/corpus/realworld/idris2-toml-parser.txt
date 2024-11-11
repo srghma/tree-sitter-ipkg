@@ -1,0 +1,52 @@
+============================================
+idris2-toml-parser
+============================================
+package parser-toml
+version   = 0.1.0
+authors   = "stefan-hoeck"
+sourcedir = "src"
+depends   = parser
+          , refined
+
+brief     = "Total and efficient parser and lexer for the TOML config file language"
+
+modules = Data.Time.Date
+        , Data.Time.Time
+
+        , Text.Time.Lexer
+        , Text.TOML.Types
+        , Text.TOML.Lexer
+        , Text.TOML.Parser
+        , Text.TOML
+
+------
+
+(source_file
+  (package_declaration
+    (package_name))
+  (version_declaration
+    (version_number))
+  (field_declaration
+    (field_name)
+    (string_value))
+  (field_declaration
+    (field_name)
+    (string_value))
+  (dependency_declaration
+    (dependency_list
+      (dependency_item
+        (package_name))
+      (dependency_item
+        (package_name))))
+  (field_declaration
+    (field_name)
+    (string_value))
+  (module_declaration
+    (module_list
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name)
+      (module_name))))
