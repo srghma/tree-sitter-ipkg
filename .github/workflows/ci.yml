@@ -14,7 +14,8 @@ jobs:
         uses: tree-sitter/setup-action/cli@v1
       - uses: actions/setup-python@v5
       - uses: actions/setup-node@v4
-      # - run: npm install
+      - run: ./node_modules/.bin/tree-sitter generate
+      - run: ./node_modules/.bin/tree-sitter test
       # - uses: tree-sitter/parse-action@v3
       #   id: examples
       #   continue-on-error: true
