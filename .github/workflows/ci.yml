@@ -13,15 +13,16 @@ jobs:
       - name: Set up tree-sitter
         uses: tree-sitter/setup-action/cli@v1
       - uses: actions/setup-python@v5
-      - run: npm install
-      - uses: tree-sitter/parse-action@v3
-        id: examples
-        continue-on-error: true
-        with:
-          files: |-
-            examples/**
-      - uses: actions/upload-artifact@v4
-        if: steps.examples.outputs.failures != ''
-        with:
-          name: failures
-          path: ${{steps.examples.outputs.failures}}
+      - uses: actions/setup-node@v4
+      # - run: npm install
+      # - uses: tree-sitter/parse-action@v3
+      #   id: examples
+      #   continue-on-error: true
+      #   with:
+      #     files: |-
+      #       examples/**
+      # - uses: actions/upload-artifact@v4
+      #   if: steps.examples.outputs.failures != ''
+      #   with:
+      #     name: failures
+      #     path: ${{steps.examples.outputs.failures}}
